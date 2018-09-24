@@ -1,0 +1,417 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B213298D214997F100356132 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B213298C214997F100356132 /* AppDelegate.m */; };
+		B2132990214997F100356132 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B213298F214997F100356132 /* ViewController.m */; };
+		B2132992214997F200356132 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2132991214997F200356132 /* Assets.xcassets */; };
+		B2132995214997F200356132 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2132993214997F200356132 /* Main.storyboard */; };
+		B2132998214997F200356132 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2132997214997F200356132 /* main.m */; };
+		B21329DF2149B10600356132 /* libboost_date_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B21329D62149A12600356132 /* libboost_date_time.a */; };
+		B21329E02149B10800356132 /* libboost_random.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B21329D72149A12600356132 /* libboost_random.a */; };
+		B21329E12149B10C00356132 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B21329D52149A12600356132 /* libboost_system.a */; };
+		B21329E3214A095100356132 /* libsocketio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B21329E2214A095100356132 /* libsocketio.a */; };
+		B2394F0C214A3D4700EA7E7D /* GGEZcocoa.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = B2132988214997F100356132 /* GGEZcocoa.app */; };
+		B280021021592E9900FB199E /* GameManagerWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = B280020F21592E9900FB199E /* GameManagerWrapper.mm */; };
+		B280022F215931AE00FB199E /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2800229215931AE00FB199E /* GameManager.cpp */; };
+		B2800230215931AE00FB199E /* SocketIOManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B280022B215931AE00FB199E /* SocketIOManager.cpp */; };
+		B2800231215931AE00FB199E /* CElephant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B280022C215931AE00FB199E /* CElephant.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B2394F0B214A3D3E00EA7E7D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(SRCROOT)/../output";
+			dstSubfolderSpec = 0;
+			files = (
+				B2394F0C214A3D4700EA7E7D /* GGEZcocoa.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B2132988214997F100356132 /* GGEZcocoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGEZcocoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B213298B214997F100356132 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B213298C214997F100356132 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B213298E214997F100356132 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B213298F214997F100356132 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B2132991214997F200356132 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B2132994214997F200356132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B2132996214997F200356132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2132997214997F200356132 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B2132999214997F200356132 /* GGEZcocoa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GGEZcocoa.entitlements; sourceTree = "<group>"; };
+		B21329D52149A12600356132 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../libs_macos/libboost_system.a; sourceTree = "<group>"; };
+		B21329D62149A12600356132 /* libboost_date_time.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_date_time.a; path = ../libs_macos/libboost_date_time.a; sourceTree = "<group>"; };
+		B21329D72149A12600356132 /* libboost_random.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_random.a; path = ../libs_macos/libboost_random.a; sourceTree = "<group>"; };
+		B21329E2214A095100356132 /* libsocketio.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; name = libsocketio.a; path = ../libs_macos/libsocketio.a; sourceTree = "<group>"; };
+		B280020E21592E9900FB199E /* GameManagerWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameManagerWrapper.h; sourceTree = "<group>"; };
+		B280020F21592E9900FB199E /* GameManagerWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GameManagerWrapper.mm; sourceTree = "<group>"; };
+		B2800229215931AE00FB199E /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameManager.cpp; path = ../Common/GameManager.cpp; sourceTree = "<group>"; };
+		B280022A215931AE00FB199E /* CElephant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CElephant.h; path = ../Common/CElephant.h; sourceTree = "<group>"; };
+		B280022B215931AE00FB199E /* SocketIOManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SocketIOManager.cpp; path = ../Common/SocketIOManager.cpp; sourceTree = "<group>"; };
+		B280022C215931AE00FB199E /* CElephant.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CElephant.cpp; path = ../Common/CElephant.cpp; sourceTree = "<group>"; };
+		B280022D215931AE00FB199E /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameManager.h; path = ../Common/GameManager.h; sourceTree = "<group>"; };
+		B280022E215931AE00FB199E /* SocketIOManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIOManager.h; path = ../Common/SocketIOManager.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B2132985214997F100356132 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B21329E3214A095100356132 /* libsocketio.a in Frameworks */,
+				B21329DF2149B10600356132 /* libboost_date_time.a in Frameworks */,
+				B21329E02149B10800356132 /* libboost_random.a in Frameworks */,
+				B21329E12149B10C00356132 /* libboost_system.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B213297F214997F100356132 = {
+			isa = PBXGroup;
+			children = (
+				B280022C215931AE00FB199E /* CElephant.cpp */,
+				B280022A215931AE00FB199E /* CElephant.h */,
+				B2800229215931AE00FB199E /* GameManager.cpp */,
+				B280022D215931AE00FB199E /* GameManager.h */,
+				B280022B215931AE00FB199E /* SocketIOManager.cpp */,
+				B280022E215931AE00FB199E /* SocketIOManager.h */,
+				B213298A214997F100356132 /* GGEZcocoa */,
+				B2132989214997F100356132 /* Products */,
+				B21329C021499B4B00356132 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B2132989214997F100356132 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B2132988214997F100356132 /* GGEZcocoa.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B213298A214997F100356132 /* GGEZcocoa */ = {
+			isa = PBXGroup;
+			children = (
+				B213298B214997F100356132 /* AppDelegate.h */,
+				B213298C214997F100356132 /* AppDelegate.m */,
+				B213298E214997F100356132 /* ViewController.h */,
+				B213298F214997F100356132 /* ViewController.m */,
+				B2132991214997F200356132 /* Assets.xcassets */,
+				B2132993214997F200356132 /* Main.storyboard */,
+				B2132996214997F200356132 /* Info.plist */,
+				B2132997214997F200356132 /* main.m */,
+				B2132999214997F200356132 /* GGEZcocoa.entitlements */,
+				B280020E21592E9900FB199E /* GameManagerWrapper.h */,
+				B280020F21592E9900FB199E /* GameManagerWrapper.mm */,
+			);
+			path = GGEZcocoa;
+			sourceTree = "<group>";
+		};
+		B21329C021499B4B00356132 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B21329E2214A095100356132 /* libsocketio.a */,
+				B21329D62149A12600356132 /* libboost_date_time.a */,
+				B21329D72149A12600356132 /* libboost_random.a */,
+				B21329D52149A12600356132 /* libboost_system.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B2132987214997F100356132 /* GGEZcocoa */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B213299C214997F200356132 /* Build configuration list for PBXNativeTarget "GGEZcocoa" */;
+			buildPhases = (
+				B2132984214997F100356132 /* Sources */,
+				B2132985214997F100356132 /* Frameworks */,
+				B2132986214997F100356132 /* Resources */,
+				B2394F0B214A3D3E00EA7E7D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GGEZcocoa;
+			productName = GGEZcocoa;
+			productReference = B2132988214997F100356132 /* GGEZcocoa.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B2132980214997F100356132 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Nguyen The Long";
+				TargetAttributes = {
+					B2132987214997F100356132 = {
+						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = B2132983214997F100356132 /* Build configuration list for PBXProject "GGEZcocoa" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B213297F214997F100356132;
+			productRefGroup = B2132989214997F100356132 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B2132987214997F100356132 /* GGEZcocoa */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B2132986214997F100356132 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2132992214997F200356132 /* Assets.xcassets in Resources */,
+				B2132995214997F200356132 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B2132984214997F100356132 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B280021021592E9900FB199E /* GameManagerWrapper.mm in Sources */,
+				B280022F215931AE00FB199E /* GameManager.cpp in Sources */,
+				B2800230215931AE00FB199E /* SocketIOManager.cpp in Sources */,
+				B2132990214997F100356132 /* ViewController.m in Sources */,
+				B2800231215931AE00FB199E /* CElephant.cpp in Sources */,
+				B2132998214997F200356132 /* main.m in Sources */,
+				B213298D214997F100356132 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B2132993214997F200356132 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2132994214997F200356132 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B213299A214997F200356132 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B213299B214997F200356132 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B213299D214997F200356132 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = D9KPYP2S46;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/socketio_headers",
+					"$(SRCROOT)/../Common",
+				);
+				INFOPLIST_FILE = GGEZcocoa/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../libs_macos",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.longnt0707.GGEZcocoa;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		B213299E214997F200356132 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = D9KPYP2S46;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/socketio_headers",
+					"$(SRCROOT)/../Common",
+				);
+				INFOPLIST_FILE = GGEZcocoa/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../libs_macos",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.longnt0707.GGEZcocoa;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B2132983214997F100356132 /* Build configuration list for PBXProject "GGEZcocoa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B213299A214997F200356132 /* Debug */,
+				B213299B214997F200356132 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B213299C214997F200356132 /* Build configuration list for PBXNativeTarget "GGEZcocoa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B213299D214997F200356132 /* Debug */,
+				B213299E214997F200356132 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B2132980214997F100356132 /* Project object */;
+}

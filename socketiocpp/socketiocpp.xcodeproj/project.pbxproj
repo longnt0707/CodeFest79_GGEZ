@@ -1,0 +1,368 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B21329AE2149998B00356132 /* sio_client_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B213293E21497B9800356132 /* sio_client_impl.cpp */; };
+		B21329B02149998B00356132 /* sio_packet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B213294021497B9800356132 /* sio_packet.cpp */; };
+		B21329B22149998B00356132 /* sio_client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2132932214979A000356132 /* sio_client.cpp */; };
+		B21329B52149998B00356132 /* sio_socket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2132931214979A000356132 /* sio_socket.cpp */; };
+		B21329B7214999B700356132 /* sio_client_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = B213293F21497B9800356132 /* sio_client_impl.h */; };
+		B21329B8214999B700356132 /* sio_packet.h in Headers */ = {isa = PBXBuildFile; fileRef = B213294121497B9800356132 /* sio_packet.h */; };
+		B21329B9214999B700356132 /* sio_client.h in Headers */ = {isa = PBXBuildFile; fileRef = B213292E214979A000356132 /* sio_client.h */; };
+		B21329BA214999B700356132 /* sio_message.h in Headers */ = {isa = PBXBuildFile; fileRef = B2132930214979A000356132 /* sio_message.h */; };
+		B21329BB214999B700356132 /* sio_socket.h in Headers */ = {isa = PBXBuildFile; fileRef = B213292F214979A000356132 /* sio_socket.h */; };
+		B21329BD21499A8500356132 /* libsocketio.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = B21329A32149990400356132 /* libsocketio.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B21329BC21499A7900356132 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(SRCROOT)/../output";
+			dstSubfolderSpec = 0;
+			files = (
+				B21329BD21499A8500356132 /* libsocketio.a in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B213292E214979A000356132 /* sio_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sio_client.h; sourceTree = "<group>"; };
+		B213292F214979A000356132 /* sio_socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sio_socket.h; sourceTree = "<group>"; };
+		B2132930214979A000356132 /* sio_message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sio_message.h; sourceTree = "<group>"; };
+		B2132931214979A000356132 /* sio_socket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sio_socket.cpp; sourceTree = "<group>"; };
+		B2132932214979A000356132 /* sio_client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sio_client.cpp; sourceTree = "<group>"; };
+		B213293B21497A3500356132 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../libs_macos/libboost_system.a; sourceTree = "<group>"; };
+		B213293C21497A3500356132 /* libboost_date_time.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_date_time.a; path = ../libs_macos/libboost_date_time.a; sourceTree = "<group>"; };
+		B213293D21497A3500356132 /* libboost_random.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_random.a; path = ../libs_macos/libboost_random.a; sourceTree = "<group>"; };
+		B213293E21497B9800356132 /* sio_client_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sio_client_impl.cpp; sourceTree = "<group>"; };
+		B213293F21497B9800356132 /* sio_client_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sio_client_impl.h; sourceTree = "<group>"; };
+		B213294021497B9800356132 /* sio_packet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sio_packet.cpp; sourceTree = "<group>"; };
+		B213294121497B9800356132 /* sio_packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sio_packet.h; sourceTree = "<group>"; };
+		B21329A32149990400356132 /* libsocketio.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsocketio.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B21329A02149990400356132 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B21329172149797500356132 = {
+			isa = PBXGroup;
+			children = (
+				B21329222149797500356132 /* socketiocpp */,
+				B21329212149797500356132 /* Products */,
+				B213294621497DAA00356132 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B21329212149797500356132 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B21329A32149990400356132 /* libsocketio.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B21329222149797500356132 /* socketiocpp */ = {
+			isa = PBXGroup;
+			children = (
+				B2132938214979A600356132 /* internal */,
+				B2132932214979A000356132 /* sio_client.cpp */,
+				B213292E214979A000356132 /* sio_client.h */,
+				B2132930214979A000356132 /* sio_message.h */,
+				B2132931214979A000356132 /* sio_socket.cpp */,
+				B213292F214979A000356132 /* sio_socket.h */,
+			);
+			path = socketiocpp;
+			sourceTree = "<group>";
+		};
+		B2132938214979A600356132 /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				B213293E21497B9800356132 /* sio_client_impl.cpp */,
+				B213293F21497B9800356132 /* sio_client_impl.h */,
+				B213294021497B9800356132 /* sio_packet.cpp */,
+				B213294121497B9800356132 /* sio_packet.h */,
+			);
+			path = internal;
+			sourceTree = "<group>";
+		};
+		B213294621497DAA00356132 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B213293C21497A3500356132 /* libboost_date_time.a */,
+				B213293D21497A3500356132 /* libboost_random.a */,
+				B213293B21497A3500356132 /* libboost_system.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B21329A12149990400356132 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B21329B7214999B700356132 /* sio_client_impl.h in Headers */,
+				B21329B8214999B700356132 /* sio_packet.h in Headers */,
+				B21329B9214999B700356132 /* sio_client.h in Headers */,
+				B21329BA214999B700356132 /* sio_message.h in Headers */,
+				B21329BB214999B700356132 /* sio_socket.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		B21329A22149990400356132 /* socketio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B21329AD2149990400356132 /* Build configuration list for PBXNativeTarget "socketio" */;
+			buildPhases = (
+				B213299F2149990400356132 /* Sources */,
+				B21329A02149990400356132 /* Frameworks */,
+				B21329A12149990400356132 /* Headers */,
+				B21329BC21499A7900356132 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = socketio;
+			productName = socketio;
+			productReference = B21329A32149990400356132 /* libsocketio.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B21329182149797500356132 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Nguyen The Long";
+				TargetAttributes = {
+					B21329A22149990400356132 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = B213291B2149797500356132 /* Build configuration list for PBXProject "socketiocpp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B21329172149797500356132;
+			productRefGroup = B21329212149797500356132 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B21329A22149990400356132 /* socketio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B213299F2149990400356132 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B21329AE2149998B00356132 /* sio_client_impl.cpp in Sources */,
+				B21329B02149998B00356132 /* sio_packet.cpp in Sources */,
+				B21329B22149998B00356132 /* sio_client.cpp in Sources */,
+				B21329B52149998B00356132 /* sio_socket.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B21329292149797500356132 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B213292A2149797500356132 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B21329AB2149990400356132 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D9KPYP2S46;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/boost/1.66.0/include/,
+					"$(SRCROOT)/websocketpp",
+					"$(SRCROOT)/rapidjson/include",
+				);
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../libs_macos";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B21329AC2149990400356132 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D9KPYP2S46;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/boost/1.66.0/include/,
+					"$(SRCROOT)/websocketpp",
+					"$(SRCROOT)/rapidjson/include",
+				);
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../libs_macos";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B213291B2149797500356132 /* Build configuration list for PBXProject "socketiocpp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B21329292149797500356132 /* Debug */,
+				B213292A2149797500356132 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B21329AD2149990400356132 /* Build configuration list for PBXNativeTarget "socketio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B21329AB2149990400356132 /* Debug */,
+				B21329AC2149990400356132 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B21329182149797500356132 /* Project object */;
+}
