@@ -540,7 +540,7 @@ failed:
     
     void client_impl::on_encode(bool isBinary,shared_ptr<const string> const& payload)
     {
-        LOG("encoded payload length:"<<payload->length()<<endl);
+//        LOG("encoded payload length:"<<payload->length()<<endl);
         m_client.get_io_service().dispatch(lib::bind(&client_impl::send_impl,this,payload,isBinary?frame::opcode::binary:frame::opcode::text));
     }
     

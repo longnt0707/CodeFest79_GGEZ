@@ -148,6 +148,7 @@
       <PreprocessorDefinitions>NDEBUG;_LIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)\rapidjson\include;$(ProjectDir)\websocketpp\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -157,19 +158,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="\socketiocpp\internal\sio_client_impl.h" />
-    <ClInclude Include="\socketiocpp\internal\sio_packet.h" />
-    <ClInclude Include="\socketiocpp\sio_client.h" />
-    <ClInclude Include="\socketiocpp\sio_message.h" />
-    <ClInclude Include="\socketiocpp\sio_socket.h" />
+    <ClInclude Include="socketiocpp\internal\sio_client_impl.h" />
+    <ClInclude Include="socketiocpp\internal\sio_packet.h" />
+    <ClInclude Include="socketiocpp\sio_client.h" />
+    <ClInclude Include="socketiocpp\sio_message.h" />
+    <ClInclude Include="socketiocpp\sio_socket.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="\socketiocpp\internal\sio_client_impl.cpp" />
-    <ClCompile Include="\socketiocpp\internal\sio_packet.cpp" />
-    <ClCompile Include="\socketiocpp\sio_client.cpp" />
-    <ClCompile Include="\socketiocpp\sio_socket.cpp" />
+    <ClCompile Include="socketiocpp\internal\sio_client_impl.cpp" />
+    <ClCompile Include="socketiocpp\internal\sio_packet.cpp" />
+    <ClCompile Include="socketiocpp\sio_client.cpp" />
+    <ClCompile Include="socketiocpp\sio_socket.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

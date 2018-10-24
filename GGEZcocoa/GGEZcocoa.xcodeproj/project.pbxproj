@@ -21,6 +21,8 @@
 		B280022F215931AE00FB199E /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2800229215931AE00FB199E /* GameManager.cpp */; };
 		B2800230215931AE00FB199E /* SocketIOManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B280022B215931AE00FB199E /* SocketIOManager.cpp */; };
 		B2800231215931AE00FB199E /* CElephant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B280022C215931AE00FB199E /* CElephant.cpp */; };
+		B2FBC9EA2159CDDD0067BADE /* BFSDFS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2FBC9E72159CDDD0067BADE /* BFSDFS.cpp */; };
+		B2FBC9EB2159CDDD0067BADE /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2FBC9E92159CDDD0067BADE /* Message.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +61,10 @@
 		B280022C215931AE00FB199E /* CElephant.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CElephant.cpp; path = ../Common/CElephant.cpp; sourceTree = "<group>"; };
 		B280022D215931AE00FB199E /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameManager.h; path = ../Common/GameManager.h; sourceTree = "<group>"; };
 		B280022E215931AE00FB199E /* SocketIOManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIOManager.h; path = ../Common/SocketIOManager.h; sourceTree = "<group>"; };
+		B2FBC9E62159CDDD0067BADE /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.h; path = ../Common/Message.h; sourceTree = "<group>"; };
+		B2FBC9E72159CDDD0067BADE /* BFSDFS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BFSDFS.cpp; path = ../Common/BFSDFS.cpp; sourceTree = "<group>"; };
+		B2FBC9E82159CDDD0067BADE /* BFSDFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFSDFS.h; path = ../Common/BFSDFS.h; sourceTree = "<group>"; };
+		B2FBC9E92159CDDD0067BADE /* Message.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Message.cpp; path = ../Common/Message.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,10 @@
 		B213297F214997F100356132 = {
 			isa = PBXGroup;
 			children = (
+				B2FBC9E72159CDDD0067BADE /* BFSDFS.cpp */,
+				B2FBC9E82159CDDD0067BADE /* BFSDFS.h */,
+				B2FBC9E92159CDDD0067BADE /* Message.cpp */,
+				B2FBC9E62159CDDD0067BADE /* Message.h */,
 				B280022C215931AE00FB199E /* CElephant.cpp */,
 				B280022A215931AE00FB199E /* CElephant.h */,
 				B2800229215931AE00FB199E /* GameManager.cpp */,
@@ -206,10 +216,12 @@
 				B280021021592E9900FB199E /* GameManagerWrapper.mm in Sources */,
 				B280022F215931AE00FB199E /* GameManager.cpp in Sources */,
 				B2800230215931AE00FB199E /* SocketIOManager.cpp in Sources */,
+				B2FBC9EA2159CDDD0067BADE /* BFSDFS.cpp in Sources */,
 				B2132990214997F100356132 /* ViewController.m in Sources */,
 				B2800231215931AE00FB199E /* CElephant.cpp in Sources */,
 				B2132998214997F200356132 /* main.m in Sources */,
 				B213298D214997F100356132 /* AppDelegate.m in Sources */,
+				B2FBC9EB2159CDDD0067BADE /* Message.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +369,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../libs_macos",
 				);
+				OTHER_LDFLAGS = "-Wl,-stack_size,1000000";
 				PRODUCT_BUNDLE_IDENTIFIER = com.longnt0707.GGEZcocoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -384,6 +397,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../libs_macos",
 				);
+				OTHER_LDFLAGS = "-Wl,-stack_size,1000000";
 				PRODUCT_BUNDLE_IDENTIFIER = com.longnt0707.GGEZcocoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -14,4 +14,6 @@
 
 +(void)InitMatch;
 
++(void)QuitMatch;
+
 @end

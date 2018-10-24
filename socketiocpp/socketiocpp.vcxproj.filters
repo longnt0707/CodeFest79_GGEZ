@@ -27,19 +27,19 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="\socketiocpp\sio_client.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="socketiocpp\sio_client.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="\socketiocpp\sio_message.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="socketiocpp\sio_message.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="\socketiocpp\sio_socket.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="socketiocpp\sio_socket.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="\socketiocpp\internal\sio_client_impl.h">
+    <ClInclude Include="socketiocpp\internal\sio_packet.h">
       <Filter>Source Files\internal</Filter>
     </ClInclude>
-    <ClInclude Include="\socketiocpp\internal\sio_packet.h">
+    <ClInclude Include="socketiocpp\internal\sio_client_impl.h">
       <Filter>Source Files\internal</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,16 +47,16 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="\socketiocpp\sio_client.cpp">
+    <ClCompile Include="socketiocpp\sio_client.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="\socketiocpp\sio_socket.cpp">
+    <ClCompile Include="socketiocpp\sio_socket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="\socketiocpp\internal\sio_client_impl.cpp">
+    <ClCompile Include="socketiocpp\internal\sio_packet.cpp">
       <Filter>Source Files\internal</Filter>
     </ClCompile>
-    <ClCompile Include="\socketiocpp\internal\sio_packet.cpp">
+    <ClCompile Include="socketiocpp\internal\sio_client_impl.cpp">
       <Filter>Source Files\internal</Filter>
     </ClCompile>
   </ItemGroup>

@@ -2,16 +2,7 @@
 #pragma once
 
 #include <string>
-
-enum API_CODE
-{
-	UN_KNOWN          = 0,
-	SUCCESS           = 1,
-	NOT_EXISTED_ROOM  = 100,
-	INVALID_KEY       = 101,
-	SYSTEM_ERROR      = 102,
-	INVALID_PARAMETER = 103,
-};
+#include "Message.h"
 
 // Socket IO events
 #define PLAYER_OUTGOING_JOIN_ROOM             "player join room"
@@ -19,12 +10,43 @@ enum API_CODE
 #define PLAYER_INCOMMING_ROOM_STATE           "player room state"
 #define PLAYER_INCOMMING_DRIVE_ELEPHANT_STATE "player drive elephant state"
 
-#define UNIQUE_TEAM_ID           "5b76dd170273602fd9d05e84"
-#define UNIQUE_MATCH_ID_TRAINING "5ba86d9ff8e4b56196601eeb"
-//#define UNIQUE_SERVER_ADDRESS    "http://54.255.181.99/"
-//#define UNIQUE_SERVER_ADDRESS    "http://codefest79.satek.vn/"
-#define UNIQUE_SERVER_ADDRESS    "http://codefest79.techover.io/"
-#define UNIQUE_TEAM_NAME         "GGEZ_:V"
+// Addresses & IDs
+#define UNIQUE_TEAM_NAME				"GGEZ_:V"
+#define UNIQUE_TEAM_ID					"5b76dd170273602fd9d05e84"
+#define UNIQUE_TEAM_ID_INPLAY			"5b76dd170273602fd9d05e85"
+//#define UNIQUE_TEAM_ID_INPLAY_100CAN    "5b76dc430273602fd9d05e73"
+
+#define UNIQUE_SERVER_ADDRESS_FIRST     "http://codefest79.satek.vn/"
+#define UNIQUE_SERVER_PUBLIC_IP         "http://54.255.181.99/"
+#define UNIQUE_SERVER_ADDRESS_SECOND    "http://codefest79.techover.io/"
+#define UNIQUE_SERVER_LOCAL_IP_TEST     "http://192.168.0.105/"
+#define UNIQUE_SERVER_LOCAL_IP_MATCH1   "http://192.168.0.103/"       //match1 0925
+#define UNIQUE_SERVER_LOCAL_IP_MATCH2   "http://192.168.0.100/"       //match2 0928
+#define UNIQUE_SERVER_LOCAL_IP_MATCH3   "http://192.168.0.100/"       //match3 1004
+#define UNIQUE_SERVER_LOCAL_IP_MATCH4   UNIQUE_SERVER_LOCAL_IP_MATCH3 //match4 1004
+
+#define UNIQUE_MATCH_ID_TRAINING_FIRST       "5b76dd170273602fd9d05e84"
+#define UNIQUE_MATCH_ID_TRAINING_GGEZ        "5ba86d9ff8e4b56196601eeb"
+#define UNIQUE_MATCH_ID_TRAINING_100CAN      "5ba247c6837605227461ccfa"
+#define UNIQUE_MATCH_ID_TRAINING_GGEZ_LOCAL  "5badc2a5c62f675a7316d449"
+#define UNIQUE_MATCH_ID_BE_V1_259_3     "5b991707be34b16194b8191c" //match1 0925 vs Cam Quit 1-0-0
+#define UNIQUE_MATCH_ID_BE_V2_279_2     "5ba1b47407330e1b8112e995" //match2 0928 vs Iron Man 0-1-1
+
+#define UNIQUE_MATCH_ID_BE_V5_410_3     "5ba36e97baa3420274998719" //match3 1004 vs Bravo
+#define UNIQUE_MATCH_ID_BE_V4_410_12    "5ba367b4baa3420274998710" //match4 1004 vs Tien Nu
+
+// Update here for each match
+#define UNIQUE_SERVER_ADDRESS_CURRENT    UNIQUE_SERVER_LOCAL_IP_MATCH4
+#define UNIQUE_MATCH_ID_CURRENT          UNIQUE_MATCH_ID_BE_V4_410_12
+
+/*
+	Wifi FSoft Guest
+	Account: CodeFest79
+	Password: FPTSOFTWARE
+
+    Guest-0184229
+    guest-0184229
+*/
 
 class GameManager
 {
@@ -33,6 +55,8 @@ private:
 	std::string tID;
 	std::string mID;
 	std::string tName;
+	std::string tIDPlaying;
+
 public:
 	static GameManager& Shared()
 	{
@@ -45,124 +69,17 @@ public:
 
 	void SocketIOStartConnect(std::string server);
 	void SocketIOJoinRoom(std::string matchID);
+    void SocketIOQuit();
 
 	void SendElephants(std::string moves);
 };
 
-/*
-direction
-    1
-2       4
-    3
-corner
-1       4
-2       3
-*/
-
-
 
 /*
-Wifi FSoft Guest
-Account: CodeFest79
-Password: FPTSOFTWARE
-Server: http://54.255.181.99/
-*/
+ * Map 23x23, 10 food: average cost for 1 food: 7.0 (1.0 ~ 1 movement)
+ * Cost of Death: 10 food + 10 seconds = 10*7.0 + 10*5 (speed 5: 5 movement/second) = 120.0
+ */
 
-/*
-* Drive elephant
-Data Format: JSON.
 
-Data Structure:
-- Requesting is executed successfully.
-{
-	"code": 1,
-	"status": "OK"
-}
 
-- Requesting is executed failed.
-{
-	"code": xx,
-	"status": "Error",
-	"message": "xxxxxxxx"
-}
-
-Data Definition:
-	- code: The code of execution. Type of Number.
-		1: Successful.
-		100: The room have not created yet.
-		101: Invalide key from client(mid or tid).
-	- status: The description of code. Type of String.
-	- message: The detail description of code. Type of String.
-*/
-
-/*
-* Server incomming cycle
-Data Format: JSON.
-
-Data Structure:
-- Requesting is executed successfully.
-{
-	"code": 1,
-	"status": "OK",
-	"round_status": xx,
-	"round_time": xx,
-	"map": { horizontal: xx, vertical: yy },
-	"speed": xx,
-	"players": [
-		{
-			"id": "xxxxx, name:"xxxxx",
-			"direction": xx,
-			"segments": [
-				{"x: xxxx", "y": xxxx},
-				{"x: xxxx", "y": xxxx},
-				{"x: xxxx", "y": xxxx},
-				{"x: xxxx", "y": xxxx}, ....
-			],
-			"score": xxxx
-		},
-		....
-	],
-	"foods": [
-		{
-			"id": "Food_xxxx",
-			"coordinate": { "x": xxxx, "y": xxxx },
-			"type: "NORMAL"
-		},
-		....
-	]
-}
-
-- Requesting is executed failed.
-{
-	"code": xx,
-	"status": "Error",
-	"message": "xxxxxxxx"
-}
-
-Data Definition:
-- code: The code of execution. Type of Number.
-	1: Successful.
-	100: The room have not created yet.
-	101: Invalide key from client(mid or tid).
-- round_status: The state of round. Type of Number.
-	0: a round is not started.
-	1: a round is playing.
-	2: a round is pausing.
-	3: a round is ended/closed.
-- round_time: The remaining time of round in seconds.
-- map: The information of map. Include size of map by horizotal and vertical squares.
-- speed: The moving speed information of competitors on map.
-- players: The array list of players(include you) on map.
-- direction: The current direction of elephant.
-	The value of moving step is defined as below:
-	1: Moving UP.
-	2: Moving LEFT.
-	3: Moving DOWN.
-	4; Moving RIGHT.
-- segments: The array of positions of player's elephant members on map. The first item in array is position of Leader Elephant.
-- score: Current score of player on map.
-- foods: The array list of foods(check point elephants) on map.
-- coordinate: The position of food on map.
-- type: The bonus point of food. There are 3 type of bonus point(NORMAL, SUPER, GOLDEN)
-*/
 

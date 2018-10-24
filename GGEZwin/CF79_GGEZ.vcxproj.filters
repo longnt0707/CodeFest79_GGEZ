@@ -48,6 +48,12 @@
     <ClInclude Include="..\socketio_headers\sio_socket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\Common\Message.h">
+      <Filter>CF79</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\BFSDFS.h">
+      <Filter>CF79</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -63,6 +69,12 @@
       <Filter>CF79</Filter>
     </ClCompile>
     <ClCompile Include="..\Common\SocketIOManager.cpp">
+      <Filter>CF79</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Message.cpp">
+      <Filter>CF79</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\BFSDFS.cpp">
       <Filter>CF79</Filter>
     </ClCompile>
   </ItemGroup>

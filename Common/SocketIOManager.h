@@ -20,6 +20,7 @@ void socketioStartConnect(std::string server);
 void socketioJoinRoom(std::string teamID, std::string roomID, std::string eventName);
 void socketioRegisterEvent(std::string eventName, SocketIOIncommingEventHandler callback);
 void socketioSendElephentArmy(std::string teamID, std::string matchID, std::string direction, std::string eventName);
+void socketioClose();
 
 //#endif
 

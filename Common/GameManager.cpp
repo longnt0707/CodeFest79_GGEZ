@@ -1,23 +1,20 @@
 #include "GameManager.h"
 #include "SocketIOManager.h"
 #include "CElephant.h"
-
-#ifdef _DEBUG
-#define DLOG(__x__) printf("\e[1;31m[debug]-----");\
-                    printf __x__;\
-                    printf("\e[0m\n");
-#else
-#define DLOG(__x__)
-#endif
+#include "BFSDFS.h"
 
 void OnIncommingRoomState(sio::event& event);
 
+static Message DefaultMessage = Message();
+
 GameManager::GameManager()
 {
-	serverAddress = std::string(UNIQUE_SERVER_ADDRESS);
-	tID = std::string(UNIQUE_TEAM_ID);
-	mID = std::string(UNIQUE_MATCH_ID_TRAINING);
-	tName = std::string(UNIQUE_TEAM_NAME);
+    serverAddress = std::string(UNIQUE_SERVER_ADDRESS_CURRENT);
+	mID           = std::string(UNIQUE_MATCH_ID_CURRENT);
+    
+    tID           = std::string(UNIQUE_TEAM_ID);
+	tName         = std::string(UNIQUE_TEAM_NAME);
+	tIDPlaying    = std::string(UNIQUE_TEAM_ID_INPLAY);
 }
 
 
@@ -27,14 +24,21 @@ GameManager::~GameManager()
 
 void GameManager::SocketIOStartConnect(std::string server)
 {
+    serverAddress = server;
+    
 	socketioStartConnect(server);
-
 	socketioRegisterEvent(PLAYER_INCOMMING_ROOM_STATE, OnIncommingRoomState);
 }
 
 void GameManager::SocketIOJoinRoom(std::string matchID)
 {
-    socketioJoinRoom(UNIQUE_TEAM_ID, matchID, PLAYER_OUTGOING_JOIN_ROOM);
+    mID = matchID;
+	socketioJoinRoom(UNIQUE_TEAM_ID, matchID, PLAYER_OUTGOING_JOIN_ROOM);
+}
+
+void GameManager::SocketIOQuit()
+{
+    socketioClose();
 }
 
 void GameManager::SendElephants(std::string moves)
@@ -44,80 +48,100 @@ void GameManager::SendElephants(std::string moves)
 
 
 // Event handler
-static int moveCount = 0;
+static int cycleCount = 0;
+static CElephant MyElephant;
+static BFSDFS bfsdfs;
 //
+
+#define USING_TEAM_ID
+#define USING_BFSDFS
+#include <chrono>
+
 void OnIncommingRoomState(sio::event& event) {
 	sio::message::ptr data = event.get_message();
-	int64_t code = data->get_map()["code"]->get_int();
-	std::string status = data->get_map()["status"]->get_string();
 
-	DLOG(("Room_State code: %lld", code));
+	auto check0 = std::chrono::high_resolution_clock::now();
+	CONNECT_STATUS stat = DefaultMessage.parsingIncomingRoomState(data);
 
-	if (code == 1) {
-		sio::message::ptr roomInfo = data->get_map()["roomInfo"];
-		if (roomInfo) {
-			int64_t round_status = roomInfo->get_map()["round_status"]->get_int();
-			if (round_status == 1) {
+	if (DefaultMessage.code == API_CODE::SUCCESS) {
+		
+		if (stat != CONNECT_STATUS::STATUS_ERROR_ROOM_INFO_NULL) {
 
-				// array_message
-				std::vector<std::shared_ptr<sio::message>> players = roomInfo->get_map()["players"]->get_vector();
-
-				CElephant MyElephant = CElephant();
-
-				int64_t participants = players.capacity();
-				for (int i = 0; i < participants; i++) {
-					sio::message::ptr playerI = players.at(i);
-
-					std::string name = playerI->get_map()["name"]->get_string();
-					std::string trueName = std::string(UNIQUE_TEAM_NAME);
-
-					if (name.compare(trueName) == 0) {
-						int64_t direction = playerI->get_map()["direction"]->get_int();
-						MyElephant.direction = direction;
-
-						// array_message
-						std::vector<std::shared_ptr<sio::message>> segments = playerI->get_map()["segments"]->get_vector();
-						int64_t length = segments.capacity();
-						for (int j = 0; j < length; j++) {
-							sio::message::ptr head = segments.at(j);
-
-							MyElephant.prevX = MyElephant.headPosX;
-							MyElephant.prevY = MyElephant.headPosY;
-							MyElephant.headPosX = head->get_map()["x"]->get_int();
-							MyElephant.headPosY = head->get_map()["y"]->get_int();
-
-							if (moveCount != 0 && MyElephant.prevX == MyElephant.headPosX && MyElephant.prevY == MyElephant.headPosY) {
-								// elephent is idle or being penaltied)
-								moveCount = 0;
-							}
-							break;
-						}
-						break;
-					}
-				}
-
-				if (moveCount == 0) {
-					if (MyElephant.headPosX == POSITION_X_MIN) {
-						if (MyElephant.headPosY == POSITION_Y_MIN) {
-							MyElephant.atCorner = 1;
-						}
-						else if (MyElephant.headPosY == POSITION_Y_MAX) {
-							MyElephant.atCorner = 2;
-						}
-					}
-					else if (MyElephant.headPosX == POSITION_X_MAX) {
-						if (MyElephant.headPosY == POSITION_Y_MIN) {
-							MyElephant.atCorner = 4;
-						}
-						else if (MyElephant.headPosY == POSITION_Y_MAX) {
-							MyElephant.atCorner = 3;
-						}
-					}
-				}
-				std::string moves = MyElephant.nextMove();
-				GameManager::Shared().SendElephants(moves);
-				moveCount++;
+			if (cycleCount == 0)
+			{
+				cycleCount++;
 			}
+
+			// 0927 comment out: send move even when not playing
+//            if (DefaultMessage.round_status == ROUND_STATUS::ROUND_PLAYING) {
+#ifdef USING_TEAM_ID
+            std::string teamId = std::string(UNIQUE_TEAM_ID_INPLAY);
+            for (int64_t i = 0; i < DefaultMessage.participants; i++)
+            {
+                if (DefaultMessage.players[i].id.compare(teamId) == 0)
+                {
+                    DefaultMessage.ourTeamIndex = i;
+                    break;
+                }
+            }
+#else
+            std::string teamName = std::string(UNIQUE_TEAM_NAME);
+            for (int64_t i = 0; i < DefaultMessage.participants; i++)
+            {
+                if (DefaultMessage.players[i].name.compare(teamName) == 0)
+                {
+                    DefaultMessage.ourTeamIndex = i;
+                    break;
+                }
+            }
+#endif
+            
+#ifdef USING_BFSDFS
+            bfsdfs.initMatrix(DefaultMessage.map.width - 1, DefaultMessage.map.height - 1);
+            // update player position
+            bfsdfs.updatePlayerMatrix(DefaultMessage);
+
+            // update head position
+            bfsdfs.setStartXY(DefaultMessage.players[DefaultMessage.ourTeamIndex].segments[0].x,
+                              DefaultMessage.players[DefaultMessage.ourTeamIndex].segments[0].y);
+
+            // update foods
+            bfsdfs.updateFoodMatrix(DefaultMessage.foods, DefaultMessage.foodstock);
+
+            auto check1 = std::chrono::high_resolution_clock::now();
+            std::string move = bfsdfs.nextMove();
+            auto check2 = std::chrono::high_resolution_clock::now();
+#endif
+            GameManager::Shared().SendElephants(move);
+            auto check3 = std::chrono::high_resolution_clock::now();
+            
+            std::chrono::duration<double, std::milli> elapsed2 = check2 - check1;
+            std::chrono::duration<double, std::milli> elapsed3 = check3 - check2;
+            std::chrono::duration<double, std::milli> oneCycle = check3 - check0;
+            static double sum = 0.0;
+            static int count = 0;
+            static double max = 0.0;
+            if (DefaultMessage.round_status == ROUND_STATUS::ROUND_PLAYING) {
+                sum += oneCycle.count();
+                count++;
+                if (max < oneCycle.count()) {
+                    max = oneCycle.count();
+                }
+            }
+            
+            printf("[debug]---- move No. %d, average %f ms, max %f, time[%f %f |%f], moves %s, score %lld\n\n",
+                   count, sum/count, max,
+                   elapsed2.count(), elapsed3.count(), oneCycle.count(),
+                   move.c_str(), DefaultMessage.players[DefaultMessage.ourTeamIndex].score);
+#if _WINDOWS && _DEBUG
+            sprintf_s(MessageBuffer, 1024,
+                      "[debug]---- move No. %d, average %f ms, max %f, time[%f %f |%f], moves %s, score %lld\n\n",
+                      count, sum/count, max,
+                      elapsed2.count(), elapsed3.count(), oneCycle.count(),
+                      move.c_str(), DefaultMessage.players[DefaultMessage.ourTeamIndex].score);
+            OutputDebugStringA(MessageBuffer);
+#endif //_WINDOWS
+//            } //ROUND_STATUS::ROUND_PLAYING
 		}
 	}
 
